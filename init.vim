@@ -7,10 +7,6 @@ set fileformats=unix,dos,mac
 set path+=**
 set spellfile=$XDG_CONFIG_HOME/nvim/spell/en.utf-8.add
 set thesaurus+=$XDG_CONFIG_HOME/nvim/spell/mthesaur.txt
-" 1 tab == 2 spaces
-set shiftwidth=2
-set softtabstop=2
-" set expandtab
 " set listchars
 set list
 set listchars=tab:→\ ,trail:·,extends:›,precedes:‹,nbsp:␣

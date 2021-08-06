@@ -26,6 +26,7 @@ Plug 'https://github.com/skywind3000/asyncrun.vim'
 Plug 'https://github.com/tommcdo/vim-lion'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-fugitive', Cond(!exists('g:vscode'))
+Plug 'https://github.com/tpope/vim-sleuth'
 Plug 'https://github.com/vim-pandoc/vim-pandoc', Cond(!exists('g:vscode'))
 Plug 'https://github.com/vim-pandoc/vim-pandoc-syntax', Cond(!exists('g:vscode'))
 Plug 'https://github.com/vim-pandoc/vim-rmarkdown', Cond(!exists('g:vscode'))
