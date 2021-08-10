@@ -14,8 +14,6 @@ packer.init({
 packer.startup({
 	function()
 		local use = use
-		-- use 'neovim/...'
-
 		use { 'JuliaEditorSupport/julia-vim', cond = { nocode } }
 		use { 'airblade/vim-gitgutter', cond = { nocode } }
 		use { 'aklt/plantuml-syntax', cond = { nocode } }
