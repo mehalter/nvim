@@ -99,7 +99,7 @@ set noshowmode
 """"""""""""""""""""""""""""
 " => Plug
 """"""""""""""""""""""""""""
-runtime ./plug.vim
+lua require('plugins')
 
 """"""""""""""""""""""""""""
 " => Remaps

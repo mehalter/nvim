@@ -58,7 +58,7 @@ highlight Type                   ctermfg=13     cterm=italic term=none
 highlight Ignore                 ctermfg=0      guifg=bg
 highlight Error                  ctermfg=0      ctermbg=1    guifg=White guibg=Red
 highlight Todo                   ctermfg=15     ctermbg=8    guifg=Blue  guibg=Yellow
-highlight SignColumn             ctermbg=8      ctermfg=12
+highlight SignColumn             ctermbg=0      ctermfg=12
 
 " Change the highlight of search matches (for use with :set hls).
 highlight Search                 ctermfg=0      ctermbg=12   guifg=Black guibg=Yellow
@@ -70,7 +70,7 @@ highlight Exception              ctermfg=10     ctermbg=0   guifg=Red   guibg=Wh
 highlight Function               ctermfg=14
 highlight Typedef                ctermfg=10     ctermbg=8   gui=italic  guifg=White guibg=Blue
 highlight SpecialChar            ctermfg=12     ctermbg=8   guifg=Black guibg=White
-highlight Delimiter              ctermfg=15     ctermbg=8   guifg=White guibg=Black
+highlight Delimiter              ctermfg=15     ctermbg=0   guifg=White guibg=Black
 highlight SpecialComment         ctermfg=11     ctermbg=8   guifg=Black guibg=Green
 
 " Common groups that link to default highlighting.
