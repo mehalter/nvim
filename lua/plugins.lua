@@ -14,13 +14,14 @@ packer.init({
 packer.startup({
 	function()
 		local use = use
-		use { 'JuliaEditorSupport/julia-vim', cond = { nocode } }
+		use { 'GoldsteinE/compe-latex-symbols', cond = { nocode } }
 		use { 'airblade/vim-gitgutter', cond = { nocode } }
 		use { 'aklt/plantuml-syntax', cond = { nocode } }
 		use { 'dhruvasagar/vim-table-mode', cond = { nocode } }
 		use { 'fatih/vim-go', run = ':GoUpdateBinaries', cond = { nocode } }
 		use { 'glepnir/lspsaga.nvim', cond = { nocode } }
 		use { 'glts/vim-textobj-comment' }
+		use { 'hrsh7th/nvim-compe', cond = { nocode } }
 		use { 'junegunn/fzf.vim', cond = { nocode } }
 		use { 'junegunn/goyo.vim', cond = { nocode } }
 		use { 'kana/vim-textobj-indent' }
@@ -29,7 +30,6 @@ packer.startup({
 		use { 'lervag/vimtex', cond = { nocode } }
 		use { 'machakann/vim-sandwich' }
 		use { 'neovim/nvim-lspconfig', cond = { nocode } }
-		use { 'nvim-lua/completion-nvim', cond = { nocode } }
 		use { 'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate' }
 		use { 'shadmansaleh/lualine.nvim', cond = { nocode } }
 		use { 'skywind3000/asyncrun.vim' }
@@ -42,6 +42,7 @@ packer.startup({
 		use { 'vim-pandoc/vim-rmarkdown', cond = { nocode } }
 		use { 'vim-scripts/ReplaceWithRegister' }
 		use { 'wakatime/vim-wakatime', cond = { nocode } }
+		use { 'ray-x/lsp_signature.nvim', cond = { nocode } }
 	end,
 	config = {
 		max_jobs = 16,
