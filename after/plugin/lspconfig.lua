@@ -8,6 +8,8 @@ local on_attach = function(client, bufnr)
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
+	require'lsp_signature'.on_attach({ use_lspsaga = true, })
+
 	local opts = { noremap=true, silent=true }
 
 	--buf_set_keymap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -35,7 +37,6 @@ local on_attach = function(client, bufnr)
 		vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
 		vim.api.nvim_command [[augroup END]]
 	end
-	require'completion'.on_attach(client, bufnr)
 
 	protocol.CompletionItemKind = {
 		'', -- Text
@@ -66,19 +67,31 @@ local on_attach = function(client, bufnr)
 	}
 end
 
-nvim_lsp.bashls.setup{ on_attach = on_attach }
-nvim_lsp.gopls.setup{ on_attach = on_attach }
-nvim_lsp.julials.setup{ on_attach = on_attach }
-nvim_lsp.pylsp.setup{ on_attach = on_attach }
-nvim_lsp.texlab.setup{ on_attach = on_attach }
-nvim_lsp.tsserver.setup{ on_attach = on_attach }
-nvim_lsp.vimls.setup{ on_attach = on_attach }
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+	properties = {
+		'documentation',
+		'detail',
+		'additionalTextEdits',
+	}
+}
+
+nvim_lsp.bashls.setup{ on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.gopls.setup{ on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.julials.setup{ on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.pyright.setup{ on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.texlab.setup{ on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.tsserver.setup{ on_attach = on_attach, capabilities = capabilities }
+nvim_lsp.vimls.setup{ on_attach = on_attach, capabilities = capabilities }
 nvim_lsp.html.setup{
 	on_attach = on_attach,
+	capabilities = capabilities,
 	cmd = { 'vscode-html-languageserver', '--stdio' }
 }
 nvim_lsp.cssls.setup{
 	on_attach = on_attach,
+	capabilities = capabilities,
 	cmd = { 'css-languageserver', '--stdio' }
 }
 
