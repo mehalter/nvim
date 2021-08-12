@@ -49,6 +49,10 @@ augroup hy
 	autocmd BufNewFile,BufRead *.hy setlocal filetype=hy
 augroup END
 
+augroup julia
+	autocmd BufNewFile,BufRead *.jl setlocal filetype=julia
+augroup END
+
 " define global python
 let g:python_host_prog="/usr/bin/python2"
 let g:python3_host_prog="/usr/bin/python"
