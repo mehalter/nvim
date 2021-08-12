@@ -99,7 +99,9 @@ set noshowmode
 """"""""""""""""""""""""""""
 " => Plug
 """"""""""""""""""""""""""""
-lua require('plugins')
+if has("nvim")
+	lua require('plugins')
+endif
 
 """"""""""""""""""""""""""""
 " => Remaps
