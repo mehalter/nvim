@@ -22,7 +22,6 @@ packer.startup({
 		use { 'glepnir/lspsaga.nvim', cond = { nocode } }
 		use { 'glts/vim-textobj-comment' }
 		use { 'hrsh7th/nvim-compe', cond = { nocode } }
-		use { 'junegunn/fzf.vim', cond = { nocode } }
 		use { 'junegunn/goyo.vim', cond = { nocode } }
 		use { 'kana/vim-textobj-indent' }
 		use { 'kana/vim-textobj-line' }
@@ -30,6 +29,7 @@ packer.startup({
 		use { 'lervag/vimtex', cond = { nocode } }
 		use { 'machakann/vim-sandwich' }
 		use { 'neovim/nvim-lspconfig', cond = { nocode } }
+		use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }, cond = { nocode } }
 		use { 'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate' }
 		use { 'shadmansaleh/lualine.nvim', cond = { nocode } }
 		use { 'skywind3000/asyncrun.vim' }
@@ -43,6 +43,7 @@ packer.startup({
 		use { 'vim-scripts/ReplaceWithRegister' }
 		use { 'wakatime/vim-wakatime', cond = { nocode } }
 		use { 'ray-x/lsp_signature.nvim', cond = { nocode } }
+		use { 'kyazdani42/nvim-web-devicons', cond = { nocode } }
 	end,
 	config = {
 		max_jobs = 16,
