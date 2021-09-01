@@ -16,7 +16,7 @@ local on_attach = function(client, bufnr)
 	--buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 	--buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 	--buf_set_keymap('x', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	buf_set_keymap("n", "<leader>F", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 	buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
 	buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 	buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
@@ -105,3 +105,30 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 		}
 	}
 )
+
+local black = require "efm/black"
+local isort = require "efm/isort"
+local prettier = require "efm/prettier"
+local shellcheck = require "efm/shellcheck"
+local shfmt = require "efm/shfmt"
+nvim_lsp.efm.setup {
+	on_attach = on_attach,
+	init_options = {documentFormatting = true},
+	root_dir = vim.loop.cwd,
+	settings = {
+		languages = {
+			python = {black, isort},
+			typescript = {prettier},
+			javascript = {prettier},
+			typescriptreact = {prettier},
+			javascriptreact = {prettier},
+			yaml = {prettier},
+			json = {prettier},
+			html = {prettier},
+			scss = {prettier},
+			css = {prettier},
+			markdown = {prettier},
+			sh = {shellcheck, shfmt},
+		}
+	}
+}

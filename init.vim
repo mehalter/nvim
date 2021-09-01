@@ -51,6 +51,7 @@ augroup END
 
 augroup julia
 	autocmd BufNewFile,BufRead *.jl setlocal filetype=julia
+	autocmd FileType julia setlocal commentstring=#\ %s
 augroup END
 
 " define global python
